@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #73AD21;
+  padding: 20px 10px;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+	visibility: hidden;
+}
+
+.form-label{
+
+font-size:25px;
+color:black;
+    padding-left: 10px;
+}
+
+.form-label-h{
+
+font-size:22px;
+color:green;
+padding-left: 5px;
+}
+
+
+select{
+    margin:10px;
+    color:black;
+    text-shadow:0 1px 0 rgba(0,0,0,0.4);
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: White;
+  color: black;	
+}
+
+.header-right {
+  float: right;
+}
+
+.header a.active {
+  background-color: White;
+  color: Black;
+}
+
+.header a.nactive {
+  background-color:'' ;
+  color: Black;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.col-container {
+    display: table;
+    width: 60%;
+    border-spacing: 10px 30px;
+}
+.col {
+    display: table-cell;
+    padding: 16px;
+    max-width:25%;
+}
+
+@media only screen and (max-width: 600px) {
+    .col { 
+        display: block;
+        width: 100%;
+    }
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.table-data{
+    padding: 6px 12px;
+    font-size: 10px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+	text-align: center;
+    width: 40%; /* Full width */
+    height: auto; /* Full height */ /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="/home/gaurav/MSCM_localhost/mscm/node_modules/web3/dist/web3.min.js"></script>
+    <title>Syndicate Loans</title>
+    
+</head>
+<body>
+
+
+<div class="header">
+  <a style="font-size: 30px" class="logo">Smart Syndicate</a>
+  <div class="header-right">
+    <a class="active" href="/home/gaurav/NSE Future_tech_2018/UI/index.html">Home</a>
+
+
+     <select id="address" placeholder="xyz" onchange="main(this)">
+     <option selected disabled hidden>Select An Address</option>
+
+	 <option value="1">Borrower </option>
+	 <option value="2">Lead Arranger</option>
+	 <option value="3">Investor Bank</option>
+	 <option value="4">Investor Bank 1</option>
+	 <option value="5">Investor Bank 2</option>
+	 <option value="6">Investor Bank 3</option>
+	 <option value="7">Investor Bank 4</option>
+	 <option value="8">Investor Bank 5</option>
+	 <option value="9">Regulator</option>
+	 
+     </select>
+  </div>
+</div>
+
+<br><br>
+
+<label class="form-label" > Bank Balance:</label>
+<label class="form-label-h" id="_balance"></label>
+
+
+
+<div id="divMain" class="col-container center">
+  <div id="divBorrower" class="col" style="background:#ddd" >
+<center>
+   <b> Request for Loan  </b>
+         <br><br>
+        <input id="_name"  class="foo" type="text" placeholder="Name of Borrower"> 
+        <br><br>
+        <input id="_request_Number"  class="foo" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_contactNumber" type="text" placeholder="Contact Number"> 
+        <br><br>        
+        <input id="_amount" type="text" placeholder="Amount"> 
+        <br><br>
+        <input id="_interest" type="text" placeholder="Interest Rate Expectation"> 
+        <br><br>
+        <input id="_duration" type="text" placeholder="Duration (Year)"> 
+        <br><br>
+        <input id="_no_of_installation" type="number" placeholder="Number of Installations "> 
+
+        <br><br>
+        <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+         Loan Details Document:<input type="file"  name="files"/><br/><br>
+        <input type="submit" value="Upload" id="btnSubmit"/>
+        </form>
+
+        <br>
+        <input id="_submit_req_a_loan" type="button" value="Submit Request">
+        </center>
+
+  </div>
+
+<div id="RePayment" class="col" style="background:#ddd">
+ <center>
+		<b>Re-Payment</b>
+		<br><br>
+
+        <input id="_request_number_pay" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_paid_re" type="text" placeholder="Total Amount To be Paid"> 
+        <br><br>
+        
+        <input id="_payment_button_b" type="button" value="Pay">
+  </center>
+ </div>
+ 
+  
+  
+  
+   <div id="aprove_request" class="col" style="background:#ddd">
+ <center>
+		<b>Approve Auction</b>
+		<br><br>
+<!--        <input id="_receiver_r" type="text" placeholder="Receiver's Address"> 
+        <br>
+        -->
+        <input id="_request_number_1" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_la_share" type="text" placeholder="LA's Share"> 
+        <br><br>
+        <input id="_la_intrest" type="text" placeholder="LA Interest Rate"> 
+        <br><br>
+      <!--  <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+         Loan Details Document:<input type="file"  name="files"/><br/><br>
+        <input type="submit" value="Upload" id="btnSubmit"/>
+        </form>
+        -->
+        
+        <input id="_approve_button" type="button" value="Approve">
+ </center>
+
+
+
+  </div>
+
+  
+   <div id="start_auction" class="col" style="background:#ddd">
+ <center>
+		<b>Start Auction</b>
+		<br><br>
+<!--        <input id="_receiver_r" type="text" placeholder="Receiver's Address"> 
+        <br>
+        -->
+        <input id="_request_number_3" type="text" placeholder="Request Number"> 
+        <br><br>
+        
+        
+        <input id="_start_button" type="button" value="Start Auction">
+ </center>
+
+
+
+  </div>
+  
+      <div id="stop_action" class="col" style="background:#ddd">
+ <center>
+		<b>Stop Auction</b>
+		<br><br>
+<!--        <input id="_receiver_r" type="text" placeholder="Receiver's Address"> 
+        <br>
+        -->
+        <input id="_request_number_2" type="text" placeholder="Request Number"> 
+        <br><br>       
+        <input id="_stop_button" type="button" value="Stop Auction">
+ </center>
+
+
+
+  </div>
+  
+  <div id="divInvestorBank_bid" class="col" style="background:#ddd">
+ <center>
+		<b>Bid In the Live Auction</b>
+		<br><br>
+<!--        <input id="_receiver_r" type="text" placeholder="Receiver's Address"> 
+        <br>
+        -->
+        <input id="_request_number_i" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_bid" type="text" placeholder="Amount Bid"> 
+        <br><br>
+        <input id="_intrest_bid" type="text" placeholder="Intrest Bid"> 
+        <br><br>
+        
+        <input id="_bid_button" type="button" value="Payment">
+ </center>
+
+
+
+  </div>
+  
+  <div id="divInvestorBank_pay" class="col" style="background:#ddd">
+ <center>
+		<b>Payment Window</b>
+		<br><br>
+<!--        <input id="_receiver_r" type="text" placeholder="Receiver's Address"> 
+        <br>
+        -->
+        <input id="_request_number_i_1" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_pay_i" type="text" placeholder="Amount Pay"> 
+        <br><br>
+        
+        <input id="_pay_button" type="button" value="Payment">
+ </center>
+
+
+
+  </div>
+  
+  
+  
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    
+    <script>
+$(document).ready(function () {
+$("#btnSubmit").click(function (event) {
+    //stop submit the form, we will post it manually.
+    event.preventDefault();
+    // Get form
+    var form = $('#fileUploadForm')[0];
+    // Create an FormData object
+    var data = new FormData(form);
+    // If you want to add an extra field for the FormData
+    //data.append("CustomField", "This is some extra data, testing");
+   // disabled the submit button
+console.log("IPFS");
+
+   $.ajax({
+        type: "POST",
+        enctype: 'multipart/form-data',
+        url: "https://ipfs.infura.io:5001/api/v0/add?pin=false",
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+           //$("#result").text(data);
+            console.log("SUCCESS : ", data);
+
+        },
+        error: function (e) {
+            $("#result").text(e.responseText);
+            console.log("ERROR : ", e);
+
+        }
+    });
+
+});
+
+});
+    
+       // Our future code here..
+        $("#divBorrower").hide();
+	$("#divLeadArranger").hide();
+	$("#divInvestorBank").hide();
+       
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        
+        
+            var select = document.getElementById("address");
+            
+   var abi_Contract = web3.eth.contract([
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "adr",
+				"type": "address"
+			}
+		],
+		"name": "balance_show",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "payment",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_amount_request",
+				"type": "uint256"
+			},
+			{
+				"name": "_duration",
+				"type": "uint256"
+			},
+			{
+				"name": "_adrOfBorrower",
+				"type": "address"
+			},
+			{
+				"name": "_contact_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_noOfInstallments",
+				"type": "uint256"
+			},
+			{
+				"name": "_interest_rate_expectation",
+				"type": "uint256"
+			}
+		],
+		"name": "request_loan",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			}
+		],
+		"name": "show_request_details",
+		"outputs": [
+			{
+				"components": [
+					{
+						"name": "request_no",
+						"type": "uint256"
+					},
+					{
+						"name": "amount_request",
+						"type": "uint256"
+					},
+					{
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"name": "amount_received",
+						"type": "uint256"
+					},
+					{
+						"name": "duration",
+						"type": "uint256"
+					},
+					{
+						"name": "addrOfBorrower",
+						"type": "address"
+					},
+					{
+						"name": "contactNo",
+						"type": "uint256"
+					},
+					{
+						"name": "noOfInstallments",
+						"type": "uint256"
+					},
+					{
+						"name": "interest_rate_expectation",
+						"type": "uint256"
+					},
+					{
+						"name": "approved_by_la",
+						"type": "bool"
+					},
+					{
+						"name": "backgrd_certificate",
+						"type": "uint256"
+					},
+					{
+						"name": "aution_start_time",
+						"type": "uint256"
+					},
+					{
+						"name": "installmentCounter",
+						"type": "uint256"
+					},
+					{
+						"name": "la_share",
+						"type": "uint256"
+					},
+					{
+						"name": "la_intrest",
+						"type": "uint256"
+					}
+				],
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			}
+		],
+		"name": "show_all_bids",
+		"outputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"name": "amount_to_invest",
+								"type": "uint256"
+							},
+							{
+								"name": "intrest_rate",
+								"type": "uint256"
+							}
+						],
+						"name": "count",
+						"type": "tuple[]"
+					},
+					{
+						"components": [
+							{
+								"name": "amount_to_invest",
+								"type": "uint256"
+							},
+							{
+								"name": "intrest_rate",
+								"type": "uint256"
+							}
+						],
+						"name": "final_count",
+						"type": "tuple[]"
+					}
+				],
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "rePayment",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_profile",
+				"type": "string"
+			}
+		],
+		"name": "register_the_address",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "limit_show",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_amount_to_invest",
+				"type": "uint256"
+			},
+			{
+				"name": "_intrest_rate",
+				"type": "uint256"
+			}
+		],
+		"name": "place_bid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "show_request",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"name": "_backgrd_certificate",
+				"type": "uint256"
+			},
+			{
+				"name": "_la_share",
+				"type": "uint256"
+			},
+			{
+				"name": "_la_intrest",
+				"type": "uint256"
+			}
+		],
+		"name": "underwriter",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_balance",
+				"type": "uint256"
+			},
+			{
+				"name": "_limit",
+				"type": "uint256"
+			}
+		],
+		"name": "add_balance_n_limit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			}
+		],
+		"name": "stop_bidding",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_request_no",
+				"type": "uint256"
+			}
+		],
+		"name": "auction_start",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_la",
+				"type": "address"
+			},
+			{
+				"name": "_borrower",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "_request_no",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "aution_start_time",
+				"type": "uint256"
+			}
+		],
+		"name": "aution_start_time",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "_request_no",
+				"type": "uint256"
+			}
+		],
+		"name": "Loan_Approved",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "requestno",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "_investor",
+				"type": "address"
+			}
+		],
+		"name": "PaymentByInvestor",
+		"type": "event"
+	}
+]);
+        
+        var selected_address=web3.eth.accounts[select.options[select.selectedIndex].value];
+      
+        $("#aprove_request").hide();
+	$("#divBorrower").hide();
+	$("#start_auction").hide();
+	$("#RePayment").hide();	        
+	$("#stop_action").hide();
+	$("#divInvestorBank_pay").hide();        
+	$("#divInvestorBank_bid").hide();
+
+        function main(selectObj)        
+        {
+        			document.getElementById("divMain").style.visibility = "Visible";
+			var _selectedValue=selectObj.value;
+			//disable all
+			//$("#divBorrower").children().prop('disabled',true);
+
+			//enable selected
+			
+			switch(_selectedValue) {
+			    case "0":
+			    	$("#stop_action").hide();
+			        $("#aprove_request").hide();
+			        $("#divBorrower").hide();
+			        $("#start_auction").hide();
+			        $("#RePayment").hide();	        
+$("#divInvestorBank_pay").hide();        
+	$("#divInvestorBank_bid").hide();
+				stop_action	                                          
+        			break;
+    			case "1":
+					$("#stop_action").hide();
+					$("#divBorrower").show();
+					$("#aprove_request").hide();
+                    			$("#start_auction").hide();
+                    				$("#RePayment").show();	        
+$("#divInvestorBank_pay").hide();        
+	$("#divInvestorBank_bid").hide();
+					/*$("#divBorrower").children().prop('Visible',true);
+					$("#divLeadArranger").children().prop('Visible',false);
+					$("#divInvestorBank").children().prop('Visible',false);
+					*/
+        			break;
+				case "2":
+
+					$("#aprove_request").show();
+					$("#divBorrower").hide();
+					$("#start_auction").show();
+					$("#stop_action").show();
+						$("#RePayment").hide();	        
+$("#divInvestorBank_pay").hide();        
+	$("#divInvestorBank_bid").hide();
+															                                            
+					break;
+				case "3":
+				case "4":
+				case "5":
+				case "6":
+				case "7":
+				case "8":
+							    	$("#stop_action").hide();
+				    $("#divBorrower").hide();
+					$("#aprove_request").hide();
+                    			$("#start_auction").hide();
+                    				$("#RePayment").hide();	        
+$("#divInvestorBank_pay").show();        
+	$("#divInvestorBank_bid").show();
+					
+					break;
+    			        default:
+    			    $("#divBorrower").hide();
+
+
+
+					$("#divInvestorBank").hide();
+        			break;
+				}
+
+
+                         //web3.eth.defaultAccount = select.options[select.selectedIndex].text;
+                         var mscm_contract = abi_Contract.at('0xe4ca08ac4a1635224142d008f6f4dddf615fcf89'); //ropsten nwtwork sc
+                         console.log("contract------"+mscm_contract);
+                        
+                        selected_address=web3.eth.accounts[select.options[select.selectedIndex].value];
+                        console.log("selected_address---------"+selected_address);
+                        
+                        
+                        var balance_s=document.getElementById("_balance");
+                        balance_s.textContent=mscm_contract.balance_show(selected_address)+" SYN Coin";
+                        console.log("balance---"+mscm_contract.balance_show(selected_address));
+                        
+                         var limit_s=document.getElementById("_limit");
+                         console.log(mscm_contract.balance_show(selected_address));
+                         //limit_s.textContent=mscm_contract.limit_show(selected_address);
+                        
+
+                
+               /*
+                        //cal function for profile  
+                        var profile=document.getElementById("profile");
+                        profile.textContent=mscm_contract.profile(selected_address);
+                */
+                
+//function request_loan(uint _request_no,string _name,uint _amount_request,uint _duration,string _adrOfBorrower, uint _contact_no,uint _noOfInstallments,uint _interest_rate_expectation) public  //can be called by borrow
+/*<b> Request for Loan  </b>
+         <br><br>
+        <input id="_name"  class="foo" type="text" placeholder="Name of Borrower"> 
+        <br><br>
+        <input id="_request_Number"  class="foo" type="text" placeholder="Reference Number"> 
+        <br><br>
+        <input id="_contactNumber" type="text" placeholder="Contact Number"> 
+        <br><br>        
+        <input id="_amount" type="text" placeholder="Amount"> 
+        <br><br>
+        <input id="_interest" type="text" placeholder="Interest Rate Expectation"> 
+        <br><br>
+        <input id="_duration" type="text" placeholder="Duration (Year)"> 
+        <br><br>
+        <input id="_no_of_installation" type="text" placeholder="Number of Installations"> 
+        <br><br>       
+        Loan Details Document :<input id="_load_Details" type="file"  placeholder="Loan Details"> 
+        <br><br>
+        Credibility Document :<input id="_UnderWriting" type="file" placeholder="Underwriting Document"> 
+        <br><br>
+        <input id="_submit_req_a_loan" type="button" value="Submit Request">
+        </center>
+    
+*/  
+//borrower---------------------------------
+
+                     //request for loan
+                       $("#_submit_req_a_loan").click(function() {
+                        alert("Success :"+mscm_contract.request_loan($("#_request_Number").val(), $("#_name").val(), $("#_amount").val(),$("#_duration").val(),selected_address,$("#_contactNumber").val(),$("#_no_of_installation").val(),$("#_interest").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });
+//investor---------------------------
+ /*
+ <input id="_request_number" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_bid" type="text" placeholder="Amount Bid"> 
+        <br><br>
+        <input id="_intrest_bid" type="text" placeholder="Intrest Bid"> 
+        <br><br>
+        
+        <input id="_bid_button" type="button" value="Payment">
+ </center>
+
+
+
+  </div>
+  
+  <div id="divInvestorBank" class="col" style="background:#ddd">
+ <center>
+		<b>Payment Window</b>
+		<br><br>
+
+        <input id="_request_number_i_1" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_pay_i" type="text" placeholder="Amount Pay">  
+ */                               //bidding of the live auction
+                   //function place_bid(uint _request_no,uint _amount_to_invest,uint _intrest_rate) public returns (string)
+                        
+                        //**yet to be connected to ui
+                           $("#_bid_button").click(function() {
+                        alert("Success :"+mscm_contract.place_bid($("#_request_number_i").val(), $("#_amount_bid").val(),$("#_intrest_bid").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });
+                          
+                          //payment of the placed bid
+                          $("#_pay_button").click(function() {
+                        alert("Success :"+mscm_contract.payment($("#_request_number_i_1").val(), $("#_amount_pay_i").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });
+                       
+
+//Lead Arranger---------------------------
+                                //Approve a borrower's request 
+/*
+<input id="_request_number_1" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_la_share" type="text" placeholder="LA's Share"> 
+        <br><br>
+        <input id="_la_intrest" type="text" placeholder="LA Interest Rate"> 
+        <br><br>
+        
+        _payment_button_b
+<input id="_request_number_pay" type="text" placeholder="Request Number"> 
+        <br><br>
+        <input id="_amount_paid_re" type="text" placeholder="Total Amount To be Paid"> 
+        <br><br>
+        */
+                
+        
+        $("#_payment_button_b").click(function() {
+                        alert("Success :"+mscm_contract.rePayment($("#_request_number_pay").val(),$("#_amount_paid_re").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });
+                        //function underwriter(uint _request_no,uint256 _backgrd_certificate) public OnlyLA returns(bool)
+
+                        //**yet to be connected to ui
+                           $("#_approve_button").click(function() {
+                        alert("Success :"+mscm_contract.underwriter($("#_request_number_1").val(), '1111',$("#_la_share").val(),$("#_la_intrest").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });
+                          
+                          //Start the auction of the request approved
+                          //function auction_start(uint _request_no) public OnlyLA returns(string)
+
+                          //**yet to be connected to ui
+                          $("#_start_button").click(function() {
+                        alert("Success :" + mscm_contract.auction_start($("#_request_number_3").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });  
+                       
+                       
+                       $("#_stop_button").click(function() {
+                        alert("Success :"+mscm_contract.stop_bidding($("#_request_number_2").val(),{from:selected_address, gas:3000000}));
+                        clear();        
+                       });                      
+                
+        }
+       
+        
+      function  CallandDisable(){
+            $("#_UnderWriting_document").attr("disabled", true);
+            $("#_submit_button").attr("disabled", true);
+            $("#_invoke_auction").attr("disabled", false    );
+        }
+
+    function openTab(evt, openTab) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(openTab).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+ 
+        
+        function clear()
+        {
+                document.getElementById("_request_Number").value = "";
+                document.getElementById("_name").value = "";
+                document.getElementById("_amount").value = "";
+                document.getElementById("_duration").value = "";
+                document.getElementById("_contactNumber").value = "";
+                document.getElementById("_no_of_installation").value = "";
+                document.getElementById("_interest").value = "";
+                        select.selectedIndex=0;
+             /*   document.getElementById("_batch_id_s").value = "";
+                document.getElementById("_batch_id_s").value = "";
+                document.getElementById("_batch_id_s").value = "";
+                document.getElementById("_batch_id_s").value = "";
+                document.getElementById("_batch_id_s").value = "";
+                document.getElementById("_batch_id_s").value = "";*/
+                                
+        
+                //clear
+        }
+        
+       
+		
+    </script>
+
+</body>
+</html>
+
